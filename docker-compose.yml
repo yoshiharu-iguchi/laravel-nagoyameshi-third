@@ -5,7 +5,7 @@ services:
     volumes:
       - ./src:/data
 
-  
+  # 追記
   web:
     image: nginx:1.20-alpine
     ports:

@@ -28,4 +28,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth:admin
 
     Route::resource('restaurants',Admin\RestaurantController::class);
 
+    Route::resource('categories',Admin\CategoryController::class)->only(['index','store','update','destroy']);
+
 });

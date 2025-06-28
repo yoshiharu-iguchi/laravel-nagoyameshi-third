@@ -12,4 +12,9 @@ class Restaurant extends Model
     public function categories() {
         return $this->belongsToMany(Category::class)->withTimestamps();
     }
+
+    public function regularHolidays()
+    {
+        return $this->belongsToMany(RegularHoliday::class,'regular_holiday_restaurant')->withTimestamps();
+    }
 }

@@ -23,4 +23,9 @@ class Restaurant extends Model
     {
         return $this->belongsToMany(RegularHoliday::class,'regular_holiday_restaurant')->withTimestamps();
     }
+
+    public function regular_holidays()
+    {
+        return $this->regularHolidays();
+    }
 }

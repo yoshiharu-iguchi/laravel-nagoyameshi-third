@@ -41,7 +41,7 @@ class CategoryController extends Controller
         $category->name = $request->input('name');
         $category->save();
 
-        return redirect()->route('admin.categories.index')->with('flash_message','カテゴリを登録しました。');
+        return redirect()->route('admin.categories.index')->with('flash_message','カテゴリを編集しました。');
     }
     public function destroy(Category $category) {
         $category->delete();

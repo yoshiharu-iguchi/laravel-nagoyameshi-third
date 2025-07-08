@@ -9,6 +9,12 @@ class Restaurant extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+    'id', 'name', 'image', 'description', 'lowest_price', 'highest_price',
+    'postal_code', 'address', 'opening_time', 'closing_time',
+    'seating_capacity', 'created_at', 'updated_at',
+];
+
     public function categories() {
         return $this->belongsToMany(Category::class)->withTimestamps();
     }

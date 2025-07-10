@@ -7,24 +7,9 @@ use App\Models\Term;
 
 class ImportTerms extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'import:terms';
-    protected $description = 'terms.csvから利用規約をインポートします';
+    protected $description = 'CSVファイルからtermsテーブルにデータをインポートする';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
-    
-
-    /**
-     * Execute the console command.
-     */
     public function handle()
     {
         $path = storage_path('app/terms.csv');
@@ -34,24 +19,24 @@ class ImportTerms extends Command
             return 1;
         }
 
-        $file = fopen($path, 'r');
-        fgetcsv($file); // ヘッダーを読み飛ばす
+        $csv = fopen($path, 'r');
 
-        $terms = [];
+        $count = 0;
 
-        while (($row = fgetcsv($file)) !== false) {
-            $terms[] = [
-                'content' => $row[0],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
+        while (($row = fgetcsv($csv)) !== false) {
+            try {
+                Term::create([
+                    'content' => $row[1], // 2列目に利用規約の本文
+                ]);
+                $count++;
+            } catch (\Exception $e) {
+                $this->error("エラー（行 {$count}）: " . $e->getMessage());
+            }
         }
 
-        fclose($file);
+        fclose($csv);
 
-        Term::insert($terms); // 一括インポート
-        $this->info('利用規約をインポートしました。');
-
+        $this->info("インポート完了：{$count} 件の利用規約を追加しました。");
         return 0;
     }
 }

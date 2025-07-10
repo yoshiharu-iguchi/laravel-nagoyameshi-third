@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Term extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['content'];
 }

@@ -58,4 +58,11 @@ class RestaurantController extends Controller
 
         return view('restaurants.index',compact('keyword','category_id','price','sorts','sorted','restaurants','categories','total'));
     }
+
+    public function show(Restaurant $restaurant) {
+        if (Auth::guard('admin')->check()){
+            return redirect()->route('admin.home');
+        }
+        return view('restaurants.show',compact('restaurant'));
+    }
 }

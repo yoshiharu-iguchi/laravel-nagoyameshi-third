@@ -10,11 +10,17 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function index(){
+        if (Auth::guard('admin')->check()){
+            return redirect()->route('admin.home');
+        }
         $user = Auth::user();
 
         return view('user.index',compact('user'));
     } 
     public function edit(User $user) {
+        if (Auth::guard('admin')->check()){
+            return redirect()->route('admin.home');
+        }
         if ($user->id !== Auth::id()){
             return redirect()->route('user.index')->with('error_message','不正なアクセスです。');
         }
@@ -23,6 +29,9 @@ class UserController extends Controller
     }
 
     public function update(Request $request,User $user) {
+        if (Auth::guard('admin')->check()){
+            return redirect()->route('admin.home');
+        }
         if ($user->id !== Auth::id()){
             return redirect()->route('user.index')->with('error_message','不正なアクセスです。');
         }

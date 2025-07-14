@@ -60,6 +60,12 @@ class RestaurantController extends Controller
     }
 
     public function show(Restaurant $restaurant) {
+<<<<<<< HEAD
+=======
+        if (Auth::guard('admin')->check()){
+            return redirect()->route('admin.home');
+        }
+>>>>>>> 39e557de3de77eb2f52c384e6553fc3834e47b8a
         return view('restaurants.show',compact('restaurant'));
     }
 }

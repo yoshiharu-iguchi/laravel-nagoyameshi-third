@@ -4,7 +4,14 @@ namespace Tests\Feature;
 
 use App\Models\Admin;
 use App\Models\User;
+<<<<<<< HEAD
 use App\Models\Restaurant;
+=======
+<<<<<<< HEAD
+=======
+use App\Models\Restaurant;
+>>>>>>> 39e557de3de77eb2f52c384e6553fc3834e47b8a
+>>>>>>> 0704bf9567f155f6d9e2cbb0b2f60d59b80fb02b
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
@@ -42,6 +49,11 @@ class RestaurantTest extends TestCase
 
         $response->assertRedirect(route('admin.home'));
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 0704bf9567f155f6d9e2cbb0b2f60d59b80fb02b
 
     // 未ログインのユーザーは会員側の店舗詳細ページにアクセスできる
     public function test_guest_can_access_restaurants_show()
@@ -78,4 +90,8 @@ class RestaurantTest extends TestCase
 
         $response->assertRedirect(route('admin.home'));
     }
+<<<<<<< HEAD
+=======
+>>>>>>> 39e557de3de77eb2f52c384e6553fc3834e47b8a
+>>>>>>> 0704bf9567f155f6d9e2cbb0b2f60d59b80fb02b
 }

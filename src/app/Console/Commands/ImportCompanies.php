@@ -21,22 +21,29 @@ class ImportCompanies extends Command
 
         $csv = fopen($path, 'r');
 
-        // ヘッダー行を読み飛ばす（不要ならコメントアウト）
-        $header = fgetcsv($csv);
+        // ヘッダー行がある場合は読み飛ばす
+        // $header = fgetcsv($csv);
 
         $count = 0;
 
         while (($row = fgetcsv($csv)) !== false) {
+            if (count($row) < 11) {
+                $this->error("列数が不足しています（行 {$count}）");
+                continue;
+            }
+
             try {
                 Company::create([
-                    'name' => $row[0],
-                    'postal_code' => $row[1],
-                    'address' => $row[2],
-                    'representative' => $row[3],
-                    'establishment_date' => $row[4],
-                    'capital' => $row[5],
-                    'business' => $row[6],
-                    'number_of_employees' => $row[7],
+                    'name' => $row[1],
+                    'postal_code' => $row[2],
+                    'address' => $row[3],
+                    'representative' => $row[4],
+                    'establishment_date' => $row[5],
+                    'capital' => $row[6],
+                    'business' => $row[7],
+                    'number_of_employees' => $row[8],
+                    'created_at' => $row[9],
+                    'updated_at' => $row[10],
                 ]);
                 $count++;
             } catch (\Exception $e) {

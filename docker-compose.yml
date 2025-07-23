@@ -17,6 +17,9 @@ services:
   
   db:
     build: ./infra/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: laravel_nagoyameshi
     volumes:
       - db-store:/var/lib/mysql
 

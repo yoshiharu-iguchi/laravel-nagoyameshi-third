@@ -18,5 +18,7 @@ class Company extends Model
         'capital',
         'business',
         'number_of_employees',
+        'created_at',
+        'updated_at',
     ];
 }

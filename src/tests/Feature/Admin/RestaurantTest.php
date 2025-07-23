@@ -30,7 +30,11 @@ class RestaurantTest extends TestCase
 
     public function test_admin_can_access_admin_restaurants_index()
     {
-        $admin = Admin::factory()->create();
+        $admin = new Admin();
+        $admin->email = 'admin@example.com';
+        $admin->password = Hash::make('nagoyameshi');
+        $admin->save();
+
         $response = $this->actingAs($admin, 'admin')->get(route('admin.restaurants.index'));
         $response->assertStatus(200);
     }

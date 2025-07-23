@@ -55,48 +55,80 @@
 
                 <div class="container mb-4">
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">ID</span></div>
-                        <div class="col"><span>{{ $restaurant->id }}</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">ID</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $restaurant->id }}</span>
+                        </div>
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">店舗名</span></div>
-                        <div class="col"><span>{{ $restaurant->name }}</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">店舗名</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $restaurant->name }}</span>
+                        </div>
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">説明</span></div>
-                        <div class="col"><span>{{ $restaurant->description }}</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">説明</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $restaurant->description }}</span>
+                        </div>
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">価格帯</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">価格帯</span>
+                        </div>
+
                         <div class="col">
                             <span>{{ number_format($restaurant->lowest_price) . '～' . number_format($restaurant->highest_price) }}円</span>
                         </div>
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">郵便番号</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">郵便番号</span>
+                        </div>
+
                         <div class="col">
                             <span>{{ substr($restaurant->postal_code, 0, 3) . '-' . substr($restaurant->postal_code, 3) }}</span>
                         </div>
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">住所</span></div>
-                        <div class="col"><span>{{ $restaurant->address }}</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">住所</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $restaurant->address }}</span>
+                        </div>
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">営業時間</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">営業時間</span>
+                        </div>
+
                         <div class="col">
                             <span>{{ date('G:i', strtotime($restaurant->opening_time)) . '～' . date('G:i', strtotime($restaurant->closing_time)) }}</span>
                         </div>
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">定休日</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">定休日</span>
+                        </div>
+
                         <div class="col d-flex">
                             @if ($restaurant->regular_holidays()->exists())
                                 @foreach ($restaurant->regular_holidays()->orderBy('regular_holiday_id', 'asc')->get() as $index => $regular_holiday)
@@ -104,7 +136,7 @@
                                         @if ($index === 0)
                                             {{ $regular_holiday->day }}
                                         @else
-                                            、{{ $regular_holiday->day }}
+                                            {{ '、' . $regular_holiday->day }}
                                         @endif
                                     </div>
                                 @endforeach
@@ -115,14 +147,20 @@
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">座席数</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">座席数</span>
+                        </div>
+
                         <div class="col">
                             <span>{{ number_format($restaurant->seating_capacity) }}席</span>
                         </div>
                     </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
-                        <div class="col-2"><span class="fw-bold">カテゴリ</span></div>
+                        <div class="col-2">
+                            <span class="fw-bold">カテゴリ</span>
+                        </div>
+
                         <div class="col d-flex">
                             @if ($restaurant->categories()->exists())
                                 @foreach ($restaurant->categories as $index => $category)
@@ -130,7 +168,7 @@
                                         @if ($index === 0)
                                             {{ $category->name }}
                                         @else
-                                            、{{ $category->name }}
+                                            {{ '、' . $category->name }}
                                         @endif
                                     </div>
                                 @endforeach
@@ -140,7 +178,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

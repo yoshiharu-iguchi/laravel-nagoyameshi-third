@@ -55,7 +55,7 @@
         <div class="row row-cols-xl-6 row-cols-md-3 row-cols-2 g-3 mb-5">
             @foreach ($highly_rated_restaurants as $highly_rated_restaurant)
                 <div class="col">
-                    <a href="{{ route('restaurants.show', $highly_rated_restaurant) }}" class="link-dark nagoyameshi-card-link">
+                    <a href="#" class="link-dark nagoyameshi-card-link">
                         <div class="card h-100">
                             @if ($highly_rated_restaurant->image !== '')
                                 <img src="{{ asset('storage/restaurants/' . $highly_rated_restaurant->image) }}" class="card-img-top nagoyameshi-vertical-card-image">
@@ -79,10 +79,6 @@
                                         <span>カテゴリ未設定</span>
                                     @endif
                                 </div>
-                                <p class="card-text">
-                                    <span class="nagoyameshi-star-rating me-1" data-rate="{{ round($highly_rated_restaurant->reviews->avg('score') * 2) / 2 }}"></span>
-                                    {{ number_format(round($highly_rated_restaurant->reviews->avg('score'), 2), 2) }}
-                                </p>
                             </div>
                         </div>
                     </a>
@@ -172,7 +168,7 @@
         <div class="row row-cols-xl-6 row-cols-md-3 row-cols-2 g-3 mb-5">
             @foreach ($new_restaurants as $new_restaurant)
                 <div class="col">
-                    <a href="{{ route('restaurants.show', $new_restaurant) }}" class="link-dark nagoyameshi-card-link">
+                    <a href="#" class="link-dark nagoyameshi-card-link">
                         <div class="card h-100">
                             @if ($new_restaurant->image !== '')
                                 <img src="{{ asset('storage/restaurants/' . $new_restaurant->image) }}" class="card-img-top nagoyameshi-vertical-card-image">

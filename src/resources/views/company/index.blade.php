@@ -1,23 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="col container">
+    <div class="container nagoyameshi-container pb-5">
         <div class="row justify-content-center">
-            <div class="col-xl-7 col-lg-8 col-md-9">
+            <div class="col-xxl-6 col-xl-7 col-lg-8 col-md-10">
+                <nav class="my-3" style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0"> 
+                        <li class="breadcrumb-item"><a href="{{ route('home') }}">ホーム</a></li>                       
+                        <li class="breadcrumb-item active" aria-current="page">会社概要</li>
+                    </ol>
+                </nav> 
 
-                <h1 class="mb-4 text-center">会社概要</h1>    
-                
-                <div class="d-flex justify-content-end align-items-end mb-3">                    
-                    <div>
-                        <a href="{{ route('admin.company.edit', $company) }}" class="me-2">編集</a>                        
-                    </div>
-                </div>                 
-                
-                @if (session('flash_message'))
-                    <div class="alert alert-info" role="alert">
-                        <p class="mb-0">{{ session('flash_message') }}</p>
-                    </div>
-                @endif                 
+                <h1 class="mb-4 text-center">会社概要</h1>                                    
 
                 <div class="container mb-4">
                     <div class="row pb-2 mb-2 border-bottom">

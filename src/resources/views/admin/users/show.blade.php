@@ -14,33 +14,81 @@
                 <h1 class="mb-4 text-center">{{ $user->name }}</h1>
 
                 <div class="container mb-4">
-                    @php
-                        $rows = [
-                            'ID' => $user->id,
-                            '氏名' => $user->name,
-                            'フリガナ' => $user->kana,
-                            'メールアドレス' => $user->email,
-                            '郵便番号' => substr($user->postal_code, 0, 3) . '-' . substr($user->postal_code, 3),
-                            '住所' => $user->address,
-                            '電話番号' => $user->phone_number,
-                        ];
-                    @endphp
-
-                    @foreach ($rows as $label => $value)
-                        <div class="row pb-2 mb-2 border-bottom">
-                            <div class="col-3">
-                                <span class="fw-bold">{{ $label }}</span>
-                            </div>
-                            <div class="col">
-                                <span>{{ $value }}</span>
-                            </div>
+                    <div class="row pb-2 mb-2 border-bottom">
+                        <div class="col-3">
+                            <span class="fw-bold">ID</span>
                         </div>
-                    @endforeach
+
+                        <div class="col">
+                            <span>{{ $user->id }}</span>
+                        </div>
+                    </div>
+
+                    <div class="row pb-2 mb-2 border-bottom">
+                        <div class="col-3">
+                            <span class="fw-bold">氏名</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $user->name }}</span>
+                        </div>
+                    </div>
+
+                    <div class="row pb-2 mb-2 border-bottom">
+                        <div class="col-3">
+                            <span class="fw-bold">フリガナ</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $user->kana }}</span>
+                        </div>
+                    </div>
+
+                    <div class="row pb-2 mb-2 border-bottom">
+                        <div class="col-3">
+                            <span class="fw-bold">メールアドレス</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $user->email }}</span>
+                        </div>
+                    </div>
+
+                    <div class="row pb-2 mb-2 border-bottom">
+                        <div class="col-3">
+                            <span class="fw-bold">郵便番号</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ substr($user->postal_code, 0, 3) . '-' . substr($user->postal_code, 3) }}</span>
+                        </div>
+                    </div>
+
+                    <div class="row pb-2 mb-2 border-bottom">
+                        <div class="col-3">
+                            <span class="fw-bold">住所</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $user->address }}</span>
+                        </div>
+                    </div>
+
+                    <div class="row pb-2 mb-2 border-bottom">
+                        <div class="col-3">
+                            <span class="fw-bold">電話番号</span>
+                        </div>
+
+                        <div class="col">
+                            <span>{{ $user->phone_number }}</span>
+                        </div>
+                    </div>
 
                     <div class="row pb-2 mb-2 border-bottom">
                         <div class="col-3">
                             <span class="fw-bold">誕生日</span>
                         </div>
+
                         <div class="col">
                             <span>
                                 @if ($user->birthday !== null)
@@ -56,6 +104,7 @@
                         <div class="col-3">
                             <span class="fw-bold">職業</span>
                         </div>
+
                         <div class="col">
                             <span>
                                 @if ($user->occupation !== null)
@@ -71,6 +120,7 @@
                         <div class="col-3">
                             <span class="fw-bold">会員種別</span>
                         </div>
+
                         <div class="col">
                             <span>
                                 @if ($user->subscribed('premium_plan'))

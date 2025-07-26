@@ -37,10 +37,10 @@ class ImportReviews extends Command
             }
 
             Review::create([
-                'content'       => $row[0],
-                'score'         => (int)$row[1],
-                'restaurant_id' => (int)$row[2],
-                'user_id'       => (int)$row[3],
+                'content'       => $row[1],
+                'score'         => (int)$row[2],
+                'restaurant_id' => (int)$row[3],
+                'user_id'       => (int)$row[4],
                 'created_at'    => $created_at,
                 'updated_at'    => now(),
             ]);

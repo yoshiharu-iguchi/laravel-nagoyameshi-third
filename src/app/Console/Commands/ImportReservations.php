@@ -42,8 +42,8 @@ class ImportReservations extends Command
                 Reservation::create([
                     'reserved_datetime' => $row[1],
                     'number_of_people' => $row[2],
-                    'user_id' => $row[3],
-                    'restaurant_id' => $row[4],
+                    'restaurant_id' => $row[3],
+                    'user_id' => $row[4],
                     'created_at' => $row[5],
                     'updated_at' => $row[6],
                 ]);

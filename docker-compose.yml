@@ -3,18 +3,17 @@ services:
   app:
     build: ./infra/php
     volumes:
-      - ./src:/data
+      - ./:/data  # 修正: src → ./
 
   web:
     image: nginx:1.20-alpine
     ports:
       - 8080:80
     volumes:
-      - ./src:/data
+      - ./:/data  # 修正: src → ./
       - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
     working_dir: /data
 
-  
   db:
     build: ./infra/mysql
     environment:

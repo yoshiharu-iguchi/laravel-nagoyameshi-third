@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.1",
         "barryvdh/laravel-dompdf": "^3.1",
+        "fakerphp/faker": "^1.24",
         "guzzlehttp/guzzle": "^7.2",
         "kyslik/column-sortable": "^7.0",
         "laravel/cashier": "^15.7",
@@ -16,7 +17,6 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.1",
-        "fakerphp/faker": "^1.9.1",
         "laravel/breeze": "^1.29",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",

@@ -2,4 +2,12 @@
 !public/
 !restaurants.csv
 !categories.csv
+!category_restaurants.csv
+!companies.csv
+!regular_holiday_restaurants.csv
+!regular_holidays.csv
+!reservations.csv
+!restaurant_user.csv
+!reviews.csv
+!terms.csv
 !.gitignore

@@ -3,6 +3,14 @@
 !/storage/app/
 !/storage/app/restaurants.csv
 !/storage/app/categories.csv
+!/storage/app/category_restaurants.csv
+!/storage/app/companies.csv
+!/storage/app/regular_holiday_restaurants.csv
+!/storage/app/regular_holiday.csv
+!/storage/app/reservations.csv
+!/storage/app/restaurant_user.csv
+!/storage/app/reviews.csv
+!/storage/app/terms.csv
 
 /.phpunit.cache
 /node_modules

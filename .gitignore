@@ -1,12 +1,12 @@
+/storage/*.key
+/storage/app/*
+!/storage/app/
+!/storage/app/restaurants.csv
+
 /.phpunit.cache
 /node_modules
 /public/build
 /public/hot
-!storage/app/
-!storage/app/restaurants.csv
-
-/storage/*.key
-/storage/app/*
 
 /vendor
 .env
@@ -14,6 +14,7 @@
 .env.backup
 .env.production
 .phpunit.result.cache
+
 Homestead.json
 Homestead.yaml
 auth.json
